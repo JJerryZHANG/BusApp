@@ -1,0 +1,105 @@
+<!DOCTYPE>
+<html ng-app="myApp">
+<script type="text/javascript" src="js/angular.min.js"></script>
+<script type="text/javascript" src="controllers/controller_admin_route.js"></script>
+<head>
+	<title>Admin Route page</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css">
+	<link rel="stylesheet" type="text/css" href="css/route_admin.css">
+</head>
+<body>
+	<div class="content" ng-controller="appCtrl">
+	  <div class="container">
+	    <div class="header">
+          <div class="logo">
+             <div class="logoimg">
+        	   <img src="Img/bus5.png" style="widht:70px; height:70px;">
+             </div>
+          </div>
+    	<div class="top">
+           <h1>Polyu Shuttle Bus Service</h1>
+    	</div>
+    	<div class="logoimg1">
+        	<img src="Img/bus4.jpg" style="widht:70px; height:70px;">
+        </div>
+      
+    	
+        <div class="clearfix"></div>
+    </div>
+
+		<h1 align="center">Admin Route</h1>
+		
+		<!--<input ng-model="test">	-->
+
+		<table class="table">
+				<tr class="info">
+					<td>Route id</td>
+					<td>Start Stop</td>
+					<td>Stop 1</td>
+					<td>Stop 2</td>
+					<td>End Stop</td>
+					<td>Timetable</td>
+					<td></td>
+					<td></td>
+				</tr>
+
+			<tbody>
+			
+
+			<tr>
+			<td><input class="form-control" ng-model="item.route_id"></td>
+			<td><select class="form-control" ng-model="item.start">
+				<option value="PolyU_Campus">PolyU Campus</option>
+				<option value="Chun_Fook_Mansion">Chun Fook Mansion</option>
+				<option value="Hung_Kwan_House">Hung Kwan House</option>
+				<option value="Siu_Ching_Mansion">Siu Ching Mansion</option>
+			</select></td>
+			<td><select class="form-control" ng-model="item.stop1">
+				<option value="Not_stop">Not stop</option>
+				<option value="PolyU_Campus">PolyU Campus</option>
+				<option value="Chun_Fook_Mansion">Chun Fook Mansion</option>
+				<option value="Hung_Kwan_House">Hung Kwan House</option>
+				<option value="Siu_Ching_Mansion">Siu Ching Mansion</option>
+			</select></td>
+			<td><select class="form-control" ng-model="item.stop2">
+				<option value="Not_stop">Not stop</option>
+				<option value="PolyU_Campus">PolyU Campus</option>
+				<option value="Chun_Fook_Mansion">Chun Fook Mansion</option>
+				<option value="Hung_Kwan_House">Hung Kwan House</option>
+				<option value="Siu_Ching_Mansion">Siu Ching Mansion</option>
+			</select></td>
+			<td><select class="form-control" ng-model="item.end">
+				<option value="PolyU_Campus">PolyU Campus</option>
+				<option value="Chun_Fook_Mansion">Chun Fook Mansion</option>
+				<option value="Hung_Kwan_House">Hung Kwan House</option>
+				<option value="Siu_Ching_Mansion">Siu Ching Mansion</option>
+			</select></td>
+			<td><input class="form-control" ng-model="item.time"></td>
+			<td>
+			<button class="btn btn-info" id="update_button" ng-click="update()">Update</button>
+
+			</td>
+			<td>
+			<buton class="btn btn-primary" role="button" id="add_button" ng-click="add()">Add</buton></td>
+			</tr>
+
+				<tr ng-repeat="item in route">
+				<!-- route is the "$scope.route" ,and item is the item in route(a var of the html) -->
+				<td>{{item.route_id}}</td>
+				<td>{{item.start}}</td>
+				<td>{{item.stop1}}</td>
+				<td>{{item.stop2}}</td>
+				<td>{{item.end}}</td>
+				<td><button  role="button" class="btn btn-primary btn-lg active" ng-click="time(item.route_id,item.time)">Timetable</button></td>
+				<td><button class="btn btn-dangeer" role="button" id="delete_button" ng-click="remove(item._id)">Delete</button></td>
+				<td><button class="btn btn-warning" role="button" id="edit_button" ng-click="edit(item._id)">Edit</button></td>			
+				</tr>
+			</tbody>
+        </table>
+        <div class="footer">
+			<p> &copy; 2015 Polyu Shuttle Bus Service</p>
+		</div>
+</div>
+</body>
+</html>

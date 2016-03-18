@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+<link rel="stylesheet" type="text/css" href="css/css.css">
+<link rel="stylesheet" type="text/css" href="css/route_user.css">
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css">
+<script type="text/javascript" src="js/angular.min.js"></script>
+<script type="text/javascript" src="controllers/controller_user_route.js"></script>
+<meta charset="UTF-8">
+<title>Route_user Page</title>
+</head>
+<body>
+	<div class="content" ng-controller="appCtrl">
+	 <div class="container">
+		<div class="header">
+			<div class="logo">
+                <div class="logoimg">
+        	      <img src="Img/bus5.png" style="widht:70px; height:70px;">
+                </div>
+    	        <div class="top">
+                   <h1>Polyu Shuttle Bus Service</h1>
+    	        </div>
+    	        <div class="logoimg1">
+        	       <img src="Img/bus4.jpg" style="widht:70px; height:70px;">
+                </div>
+            </div>
+    	    <div class="clearfix"></div>
+		</div>
+
+		<div id="routes" class="panel panel-info">
+			<div id="route_title" class="panel-heading">
+					<p> Search Results</p>
+			</div>
+			<div id="route">
+			<table class="table">
+				<tr class="info">
+					<td>route id</td>
+					<td>Start Stop</td>
+					<td>Stop 1</td>
+					<td>Stop 2</td>
+					<td>End Stop</td>
+					<td>Timetable</td>
+				</tr>
+
+				<tbody>
+				<tr ng-repeat="item in route" class="info">
+				<!-- route is the "$scope.route" ,and item is the item in route(a var of the html) -->
+				<td>{{item.route_id}}</td>
+				<td>{{item.start}}</td>
+				<td>{{item.stop1}}</td>
+				<td>{{item.stop2}}</td>
+				<td>{{item.end}}</td>	
+				<td><a href="/{{item.time}}_user.html" class="btn btn-primary btn-lg active" role="button" id="timetable_button">Timetable</a></td>				
+				</tr>
+				</tbody>
+
+			</table>
+			</div>
+		</div>
+		<div class="footer">
+			<p> &copy; 2015 Polyu Shuttle Bus Service</p>
+		</div>
+	</div>
+</div>
+</body>
+</html>
