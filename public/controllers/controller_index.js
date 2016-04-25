@@ -1,13 +1,17 @@
 var myApp = angular.module('myApp',[]);
-
+// 'myApp'是一个模块，将其赋给给变量myApp用于操作这个模块里的控制器
 myApp.controller('appCtrl',['$scope','$http',
+	
 	function($scope,$http){
-	console.log("appCtrl can be used now");	
+	//$scope 是一个appCtrl这个控制器中的一个model（模型），用于控制这个模型中定义的变量或者函数
+	//$http 是一个Angularjs的核心服务，用于读取远程服务器的数据，同时它也是一个对象
+	//console.log("appCtrl can be used now");	
+		
 		$scope.login=function(user,pwd){
 			$http.get('/login/'+user+'/'+pwd).success(
-				console.log("requet to login");
+				//console.log("requet to login");
 					function(response){
-						console.log("get the response" + response);
+						//console.log("get the response" + response);
 						if(JSON.stringify(response)=="[]"){
 							alert("Login Failed!");
 						}else{
@@ -40,6 +44,7 @@ myApp.controller('appCtrl',['$scope','$http',
 				});
 		};
 		
-	}]);
+	}
+]);
 
 		

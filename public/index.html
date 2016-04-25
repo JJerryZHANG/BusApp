@@ -1,5 +1,6 @@
 <!DOCTYPE>
 <html ng-app="myApp">
+<!--定义这个html是这个AngularJs应用程序的“所有者”-->
 <head>
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
@@ -10,7 +11,9 @@
   <title>Polyu Shuttle Bus</title>
 </head>
 <body>
+ <!-- <div ng-include="'campus.html'"></div> 包含html文件-->
  <div class="content" ng-controller="appCtrl">
+ <!--这里定义了一个名叫“appCtrl”的控制器-->
   <div class="container" >
     <div class="header">
     <div class="top-right">
@@ -18,12 +21,13 @@
         	
         	  <label>admin:
         	  	<input type="text" name="name" ng-model="admin.name" required >&nbsp;&nbsp;&nbsp;&nbsp;
+            <!--绑定数据到HTML控制器（input）的值-->
         	  </label>
     	      <label>password:
     	      	<input type="password" name="pwd" ng-model="admin.password"  required>&nbsp;&nbsp;&nbsp;&nbsp;
     	      </label> 
     	        <button src="route_admin.html" class="btn btn-primary" ng-click="login(admin.name,admin.password)">log in</button>
-		
+		              <!--这里的login是一个定义的功能函数，在控制器中执行操作-->
            </div>
 
     </div>

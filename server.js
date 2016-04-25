@@ -1,5 +1,5 @@
 var express=require('express');　　　　　　　　 //引用express模块
-var app=express();　　　　　　　　　　　　　　 //创建一个express实例
+var app=express();　　　　　　　　　　　　　　    //创建一个express实例
 var bodyParser = require('body-parser');
 var mongojs=require('mongojs');
 var db_routes=mongojs('localhost:27017/bus',['routes']);
@@ -8,9 +8,13 @@ var db_chun = mongojs('localhost:27017/bus', ['buslist_chun']);
 var db_hung = mongojs('localhost:27017/bus', ['buslist_hung']); 
 var db_siu = mongojs('localhost:27017/bus', ['buslist_siu']); 
 var db_admin=mongojs('localhost:27017/bus',['admin']);
+app.listen(3000);　　　　　　　　　　　　　　　//指定程序监听在3000端口
+//console.log("Server running on port 3000");　 //在服务器的窗口中打印一行文本
 //connect to mongodb,'/bus'is the database,['routes'] is one of the collections
 
-app.use(express.static(__dirname+"/public"));
+//app.use(express.static(__dirname+"/public"));
+app.use(express.static(__dirname+"/public"))
+//启动该js文件后，定义网站入口，
 app.use(bodyParser.json());
 
 app.get('/buslist', function (req, res) {       
@@ -264,6 +268,4 @@ app.put('/update/:id',function(req,res){
 	});
 });
 
-app.listen(3000);　　　　　　　　　　　　　　　//指定程序监听在3000端口
-console.log("Server running on port 3000");　 //在服务器的窗口中打印一行文本
 
